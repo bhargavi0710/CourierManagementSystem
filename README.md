@@ -103,11 +103,17 @@ private static final String PASSWORD = "your_password_here";
 
 ## Screenshots
 
-### Login
-![Login](screenshots/login_register.png)
-
 ### Admin Dashboard
 ![Admin Dashboard](screenshots/admin_dashboard.png)
 
+### User Dashboard
+![User Dashboard](screenshots/user_dashboard.png)
+
 ### Manage Couriers
 ![Manage Couriers](screenshots/manage_couriers.png)
+
+### Manage Employees
+![Manage Employees](screenshots/manage_employees.png)
+
+### Add Couriers
+![Add Couriers](screenshots/Add_couriers.png)
