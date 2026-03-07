@@ -116,4 +116,4 @@ private static final String PASSWORD = "your_password_here";
 ![Manage Employees](screenshots/manage_employees.png)
 
 ### Add Couriers
-![Add Couriers](screenshots/Add_couriers.png)
+![Add Couriers](screenshots/Add_courier.png)
