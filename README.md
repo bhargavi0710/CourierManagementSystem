@@ -1,49 +1,121 @@
 # 📦 Courier Management System
 
-A desktop application for managing courier operations — built with **Java**, **MySQL**, and **JDBC**. Supports two roles: **Admin** and **User (Branch Staff)**, each with their own dashboard and permissions.
+A desktop-based courier operations management system built using **Java Swing, JDBC, and MySQL**. The application provides secure authentication, role-based access control, courier tracking, employee management, and automated database auditing through MySQL triggers.
 
 ---
 
-## What it does
+## 🚀 Key Features
 
-- Admin can manage employees and couriers, and view deletion history
-- Users can add new couriers and track them by ID
-- Passwords are hashed with BCrypt for secure login
-- Deleted records are automatically archived using MySQL triggers
-- Real-time status tracking with unique courier IDs generated on order placement
+### 🔐 Secure Authentication
+- User login system with **BCrypt password hashing**
+- Prevents storage of plaintext passwords
+- Supports role-based authorization
+
+### 👥 Role-Based Access Control (RBAC)
+
+#### Admin
+- Manage employees
+- Manage couriers
+- View archived records
+- Monitor courier operations
+
+#### Branch Staff (User)
+- Add new courier orders
+- Track courier status
+- Update courier information
+
+### 📦 Courier Tracking System
+- Unique courier IDs generated automatically
+- Real-time courier status tracking
+- Sender and receiver information management
+
+### 🗃️ Employee Management
+- Add, update, delete, and manage employee records
+- Centralized employee database
+
+### 📜 Automated Audit Trail
+- Deleted employees and couriers are automatically archived
+- Implemented using MySQL Triggers
+- Preserves historical records for accountability and recovery
 
 ---
 
-## Tech Used
+## 🏗️ System Architecture
 
-- **Java + Swing** — UI and application logic
-- **MySQL** — database storage
-- **JDBC** — connects Java to MySQL
-- **BCrypt** — password hashing
-- **NetBeans** — development environment
-- **MySQL Workbench** — database design and management
+```text
+Java Swing UI
+      │
+      ▼
+Business Logic Layer
+      │
+      ▼
+JDBC Data Access Layer
+      │
+      ▼
+MySQL Database
+      │
+      ├── Users
+      ├── Couriers
+      ├── Employees
+      ├── Previous Couriers
+      └── Previous Employees
+```
 
 ---
 
-## Database
+## 🛠️ Technology Stack
 
-The `courier_management` database has 5 tables:
-
-- `users` — login credentials and roles
-- `couriers` — all parcel/courier records
-- `employees` — employee details
-- `previous_couriers` — archived deleted couriers (via trigger)
-- `previous_employees` — archived deleted employees (via trigger)
+| Layer | Technologies |
+|---------|------------|
+| Frontend/UI | Java Swing |
+| Backend Logic | Java |
+| Database Connectivity | JDBC |
+| Database | MySQL |
+| Security | BCrypt |
+| Development Environment | Apache NetBeans |
+| Database Management | MySQL Workbench |
 
 ---
 
-## How to Run
+## 🧠 Engineering Highlights
 
-1. Clone the repo and open it in **NetBeans**
-2. Set up MySQL and run the SQL below to create the database
-3. Update your credentials in `DBConnection.java`
-4. Add `mysql-connector.jar` and `jbcrypt.jar` to project libraries
-5. Clean, Build and Run
+### Database Auditing
+Implemented MySQL triggers to automatically archive deleted employee and courier records.
+
+### Secure Authentication
+Integrated BCrypt hashing to protect user credentials and eliminate plaintext password storage.
+
+### Role-Based Authorization
+Created separate dashboards and permissions for administrators and branch staff.
+
+### Relational Database Design
+Designed a normalized database schema with dedicated tables for users, couriers, employees, and archived records.
+
+---
+
+## 🗄️ Database Schema
+
+The `courier_management` database contains the following tables:
+
+- `users` — login credentials and user roles
+- `couriers` — courier and parcel records
+- `employees` — employee information
+- `previous_couriers` — archived deleted courier records
+- `previous_employees` — archived deleted employee records
+
+---
+
+## ⚙️ How to Run
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/bhargavi0710/CourierManagementSystem.git
+cd CourierManagementSystem
+```
+
+### 2. Create the Database
+
 ```sql
 CREATE DATABASE courier_management;
 USE courier_management;
@@ -94,14 +166,39 @@ CREATE TABLE previous_couriers (
     deleted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ```
+
+### 3. Configure Database Connection
+
+Update database credentials in:
+
 ```java
 // DBConnection.java
-private static final String URL = "jdbc:mysql://localhost:3306/courier_management";
-private static final String USER = "root";
-private static final String PASSWORD = "your_password_here";
+private static final String URL =
+    "jdbc:mysql://localhost:3306/courier_management";
+
+private static final String USER = "your_username";
+private static final String PASSWORD = "your_password";
 ```
 
-## Screenshots
+### 4. Add Required Libraries
+
+Add the following JAR files to your NetBeans project:
+
+- mysql-connector-j
+- jbcrypt
+
+### 5. Run the Application
+
+```text
+Open project in NetBeans
+Clean Project
+Build Project
+Run Project
+```
+
+---
+
+## 📸 Screenshots
 
 ### Admin Dashboard
 ![Admin Dashboard](screenshots/admin_dashboard.png)
@@ -115,5 +212,34 @@ private static final String PASSWORD = "your_password_here";
 ### Manage Employees
 ![Manage Employees](screenshots/manage_employees.png)
 
-### Add Couriers
-![Add Couriers](screenshots/add_courier.png)
+### Add Courier
+![Add Courier](screenshots/add_courier.png)
+
+---
+
+## 🔮 Future Enhancements
+
+- QR-code based parcel tracking
+- SMS and email notifications
+- Shipment route optimization
+- Analytics and reporting dashboard
+- REST API integration
+- Web-based version of the system
+- Multi-branch courier management
+
+---
+
+## 👩‍💻 Author
+
+**Bhargavi Jagdale**
+
+B.E. Computer Engineering, MMCOE Pune
+
+- GitHub: https://github.com/bhargavi0710
+- LinkedIn: https://www.linkedin.com/in/bhargavi-jagdale-a29b69290
+
+---
+
+## 📄 License
+
+MIT License — free to use and modify.
